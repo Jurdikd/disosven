@@ -1,135 +1,289 @@
-  :root{
-    --paper:#F6F3ED;
-    --paper-2:#EFEBE2;
-    --ink:#191E29;
-    --ink-soft:#3A414F;
-    --muted:#6E6A60;
-    --signal:#D9772B;
-    --signal-deep:#B65E1C;
-    --calm:#2C5A63;
-    --line:#DED7CA;
-    --line-strong:#C9C1B2;
-  }
+/* ==========================================================================
+   VARIABLES GLOBALES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+:root {
+    --bs-primary: #f27a22;    /* Naranja principal de los CTA */
+    --navy-dark: #072237;     /* Azul oscuro profundo */
+    --bg-light-blue: #f0f7fd; /* Fondo de la sección de cierre */
+    --ticker-bg: #0c334c;     /* Fondo de la barra informativa */
+}
 
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+}
 
-  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+/* ==========================================================================
+   COMPONENTES REUTILIZABLES (BOTONES Y UTILS)
+   ========================================================================== */
+.btn-orange {
+    background-color: var(--bs-primary);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    border: none;
+}
 
-  /* ---- type ---- */
-  .display{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-0.02em}
-  .mono{font-family:'Spline Sans Mono',monospace;font-weight:400;letter-spacing:0.02em}
-  .eyebrow{
-    font-family:'Spline Sans Mono',monospace;
-    font-size:12.5px;letter-spacing:0.18em;text-transform:uppercase;
-    color:var(--signal-deep);font-weight:500;
-  }
+.btn-orange:hover {
+    background-color: #d66413;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
 
-  /* ---- header ---- */
-  header{
-    position:sticky;top:0;z-index:20;
-    background:rgba(246,243,237,0.86);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
-  .pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(217,119,43,0.55);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(217,119,43,0.5)}70%{box-shadow:0 0 0 9px rgba(217,119,43,0)}100%{box-shadow:0 0 0 0 rgba(217,119,43,0)}}
-  .nav-cta{
-    font-size:14px;font-weight:600;color:var(--ink);
-    text-decoration:none;border:1.5px solid var(--ink);
-    padding:8px 16px;border-radius:999px;transition:all .15s ease;
-  }
-  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+.text-navy-dark {
+    color: var(--navy-dark);
+}
 
-  /* ---- hero ---- */
-  .hero{padding:74px 0 30px;position:relative}
-  .hero .eyebrow{margin-bottom:22px}
-  h1{font-size:clamp(2.6rem,7vw,5rem);max-width:13ch;margin-bottom:26px}
-  h1 .em{color:var(--signal)}
-  .lede{font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:46ch;color:var(--ink-soft);margin-bottom:34px}
-  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--signal);color:#fff;text-decoration:none;
-    font-weight:600;font-size:17px;
-    padding:15px 26px;border-radius:999px;
-    transition:transform .15s ease,background .15s ease;
-  }
-  .btn:hover{background:var(--signal-deep);transform:translateY(-1px)}
-  .btn .arr{transition:transform .15s ease}
-  .btn:hover .arr{transform:translateX(3px)}
-  .cta-note{font-size:14px;color:var(--muted);max-width:24ch}
+/* ==========================================================================
+   HERO / HEADER
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(180deg, #ffffff 0%, #eef7ff 100%);
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
 
-  /* ---- seismograph signature ---- */
-  .seismo{margin:48px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:linear-gradient(var(--paper),var(--paper))}
-  .seismo .meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 0 0;color:var(--muted);font-size:12.5px}
-  .seismo .meta b{color:var(--ink);font-weight:500}
-  .trace{display:block;width:100%;height:96px;margin-top:6px}
-  .trace path{
-    fill:none;stroke:var(--ink);stroke-width:1.6;
-    stroke-linecap:round;stroke-linejoin:round;
-    stroke-dasharray:4000;stroke-dashoffset:4000;
-    animation:draw 2.6s ease-out .25s forwards;
-  }
-  .trace .spike{stroke:var(--signal)}
-  .baseline{stroke:var(--line-strong);stroke-width:1;stroke-dasharray:0;stroke-dashoffset:0;animation:none}
-  @keyframes draw{to{stroke-dashoffset:0}}
+.brand-logo {
+    font-weight: 700;
+    color: var(--navy-dark);
+}
 
-  /* ---- sections ---- */
-  section{padding:78px 0}
-  .sec-head{max-width:50ch;margin-bottom:48px}
-  .sec-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-0.02em;line-height:1.08;margin-bottom:14px}
-  .sec-head p{color:var(--ink-soft);font-size:1.05rem}
+.dot-indicator {
+    color: #dc3545;
+    margin-right: 0.5rem;
+}
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .step{background:var(--paper);padding:30px 26px}
-  .step .num{font-family:'Spline Sans Mono',monospace;font-size:13px;color:var(--signal-deep);font-weight:500;letter-spacing:0.1em}
-  .step h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;margin:14px 0 10px;letter-spacing:-0.01em}
-  .step p{color:var(--ink-soft);font-size:0.97rem;line-height:1.55}
+.badge-emergency {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0d6efd;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
 
-  /* golden rule */
-  .rule{background:var(--ink);color:var(--paper);border-radius:18px;padding:clamp(34px,5vw,56px);position:relative;overflow:hidden}
-  .rule .eyebrow{color:var(--signal)}
-  .rule h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:-0.02em;line-height:1.1;margin:18px 0 16px;max-width:18ch}
-  .rule p{color:#CDC8BD;font-size:1.08rem;max-width:52ch}
-  .rule .accent-line{position:absolute;right:-40px;top:-40px;width:280px;height:280px;border:1.5px solid rgba(217,119,43,0.25);border-radius:50%}
-  .rule .accent-line.two{width:200px;height:200px;right:0;top:0;border-color:rgba(217,119,43,0.15)}
+.hero-title {
+    color: var(--navy-dark);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
 
-  /* final cta */
-  .final{text-align:center;padding-bottom:90px}
-  .final h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-0.025em;line-height:1.05;margin-bottom:26px;max-width:16ch;margin-left:auto;margin-right:auto}
+.hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
 
-  /* footer */
-  footer{border-top:1px solid var(--line);padding:42px 0 56px;background:var(--paper-2)}
-  .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
-  .foot .brand{margin-bottom:10px}
-  .foot p,.foot a{font-size:14px;color:var(--muted);text-decoration:none}
-  .foot a:hover{color:var(--signal-deep)}
-  .sources{font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.02em}
-  .foot-links{display:flex;flex-direction:column;gap:8px}
+/* ==========================================================================
+   TICKER BAR
+   ========================================================================== */
+.ticker-bar {
+    background-color: var(--ticker-bg);
+    color: #ffffff;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px 0;
+}
 
-  /* focus + motion */
-  a:focus-visible,.btn:focus-visible{outline:3px solid var(--calm);outline-offset:3px;border-radius:6px}
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto}
-    .trace path{stroke-dashoffset:0}
-  }
+/* ==========================================================================
+   SECCIÓN: CÓMO FUNCIONA
+   ========================================================================== */
+.section-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
 
-  @media (max-width:720px){
-    .steps{grid-template-columns:1fr}
-    .nav-cta{display:none}
-    .hero{padding-top:54px}
-    section{padding:58px 0}
-  }
+.step-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0091ff;
+}
+
+/* ==========================================================================
+   SECCIÓN: ESTAMOS BUSCANDO (CARRUSEL VERTICAL REVERSO - 3 ITEMS VISIBLES)
+   ========================================================================== */
+.v-carousel-container {
+    /* 50px de altura por ítem x 3 visibles = 150px de alto total */
+    height: 150px; 
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Máscara de desvanecimiento superior e inferior más pronunciada */
+.v-carousel-container::before,
+.v-carousel-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 45px; /* Más alta para desvanecer los elementos de los extremos */
+    z-index: 2;
+    pointer-events: none;
+}
+
+.v-carousel-container::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.v-carousel-container::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.v-carousel-track {
+    display: flex;
+    flex-direction: column;
+    /* 7 ítems x 50px = 350px. Iniciamos desplazados para movernos hacia abajo */
+    animation: scrollVerticalDown 16s linear infinite;
+}
+
+.v-carousel-container:hover .v-carousel-track {
+    animation-play-state: paused;
+}
+
+.v-carousel-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado para móvil, cambia a flex-start en md si prefieres */
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #94a3b8; /* Gris intermedio para los de los extremos */
+    transition: all 0.3s ease;
+}
+
+/* En resoluciones medianas/escritorio alineamos a la izquierda como el diseño */
+@media (min-width: 768px) {
+    .v-carousel-item {
+        justify-content: flex-start;
+    }
+}
+
+/* Opcional: Si quieres mantener un rol siempre resaltado en el centro mediante código */
+.v-carousel-item.font-focused {
+    color: var(--navy-dark);
+    font-weight: 800;
+}
+
+/* ANIMACIÓN KEYFRAMES (De Arriba hacia Abajo) */
+@keyframes scrollVerticalDown {
+    0% {
+        transform: translateY(-350px); /* Empieza desplazado un bloque entero */
+    }
+    100% {
+        transform: translateY(0); /* Cae limpiamente hacia su posición original */
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN: MÉTRICAS
+   ========================================================================== */
+.metric-card {
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.bg-metric-green { background-color: #4cbfa6; }
+.bg-metric-purple { background-color: #5850c4; }
+.bg-metric-orange { background-color: #fca11a; }
+
+.metric-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   SECCIÓN: REGLA DE ORO
+   ========================================================================== */
+.gold-rule-card {
+    background-color: var(--navy-dark);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-rule-card::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+
+.gold-rule-subtitle {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.gold-rule-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.gold-rule-text {
+    max-width: 750px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SECCIÓN: FINAL CALL TO ACTION & FOOTER
+   ========================================================================== */
+.final-cta-section {
+    background-color: var(--bg-light-blue);
+    padding: 80px 0;
+}
+
+footer {
+    background-color: var(--navy-dark);
+    color: #a0aec0;
+    font-size: 0.8rem;
+    padding: 40px 0;
+}
+
+.footer-logo {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
