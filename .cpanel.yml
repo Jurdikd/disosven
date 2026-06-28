@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/jesusesc/disenadoresxvenezuela.com/
-    - /bin/cp index.html $DEPLOYPATH
+    - /public_html/cp index.html $DEPLOYPATH
