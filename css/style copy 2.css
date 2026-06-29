@@ -1,0 +1,289 @@
+/* ==========================================================================
+   VARIABLES GLOBALES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+:root {
+    --bs-primary: #f27a22;    /* Naranja principal de los CTA */
+    --navy-dark: #072237;     /* Azul oscuro profundo */
+    --bg-light-blue: #f0f7fd; /* Fondo de la sección de cierre */
+    --ticker-bg: #0c334c;     /* Fondo de la barra informativa */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   COMPONENTES REUTILIZABLES (BOTONES Y UTILS)
+   ========================================================================== */
+.btn-orange {
+    background-color: var(--bs-primary);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #d66413;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.text-navy-dark {
+    color: var(--navy-dark);
+}
+
+/* ==========================================================================
+   HERO / HEADER
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(180deg, #ffffff 0%, #eef7ff 100%);
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.brand-logo {
+    font-weight: 700;
+    color: var(--navy-dark);
+}
+
+.dot-indicator {
+    color: #dc3545;
+    margin-right: 0.5rem;
+}
+
+.badge-emergency {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0d6efd;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    color: var(--navy-dark);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   TICKER BAR
+   ========================================================================== */
+.ticker-bar {
+    background-color: var(--ticker-bg);
+    color: #ffffff;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+/* ==========================================================================
+   SECCIÓN: CÓMO FUNCIONA
+   ========================================================================== */
+.section-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.step-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0091ff;
+}
+
+/* ==========================================================================
+   SECCIÓN: ESTAMOS BUSCANDO (CARRUSEL VERTICAL REVERSO - 3 ITEMS VISIBLES)
+   ========================================================================== */
+.v-carousel-container {
+    /* 50px de altura por ítem x 3 visibles = 150px de alto total */
+    height: 150px; 
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Máscara de desvanecimiento superior e inferior más pronunciada */
+.v-carousel-container::before,
+.v-carousel-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 45px; /* Más alta para desvanecer los elementos de los extremos */
+    z-index: 2;
+    pointer-events: none;
+}
+
+.v-carousel-container::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.v-carousel-container::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.v-carousel-track {
+    display: flex;
+    flex-direction: column;
+    /* 7 ítems x 50px = 350px. Iniciamos desplazados para movernos hacia abajo */
+    animation: scrollVerticalDown 16s linear infinite;
+}
+
+.v-carousel-container:hover .v-carousel-track {
+    animation-play-state: paused;
+}
+
+.v-carousel-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado para móvil, cambia a flex-start en md si prefieres */
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #94a3b8; /* Gris intermedio para los de los extremos */
+    transition: all 0.3s ease;
+}
+
+/* En resoluciones medianas/escritorio alineamos a la izquierda como el diseño */
+@media (min-width: 768px) {
+    .v-carousel-item {
+        justify-content: flex-start;
+    }
+}
+
+/* Opcional: Si quieres mantener un rol siempre resaltado en el centro mediante código */
+.v-carousel-item.font-focused {
+    color: var(--navy-dark);
+    font-weight: 800;
+}
+
+/* ANIMACIÓN KEYFRAMES (De Arriba hacia Abajo) */
+@keyframes scrollVerticalDown {
+    0% {
+        transform: translateY(-350px); /* Empieza desplazado un bloque entero */
+    }
+    100% {
+        transform: translateY(0); /* Cae limpiamente hacia su posición original */
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN: MÉTRICAS
+   ========================================================================== */
+.metric-card {
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.bg-metric-green { background-color: #4cbfa6; }
+.bg-metric-purple { background-color: #5850c4; }
+.bg-metric-orange { background-color: #fca11a; }
+
+.metric-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   SECCIÓN: REGLA DE ORO
+   ========================================================================== */
+.gold-rule-card {
+    background-color: var(--navy-dark);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-rule-card::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+
+.gold-rule-subtitle {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.gold-rule-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.gold-rule-text {
+    max-width: 750px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SECCIÓN: FINAL CALL TO ACTION & FOOTER
+   ========================================================================== */
+.final-cta-section {
+    background-color: var(--bg-light-blue);
+    padding: 80px 0;
+}
+
+footer {
+    background-color: var(--navy-dark);
+    color: #a0aec0;
+    font-size: 0.8rem;
+    padding: 40px 0;
+}
+
+.footer-logo {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}

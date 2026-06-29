@@ -1,289 +1,478 @@
 /* ==========================================================================
-   VARIABLES GLOBALES Y CONFIGURACIÓN BASE
+   VARIABLES CORPORATIVAS DE PALETA (NUEVO DISEÑO)
    ========================================================================== */
 :root {
-    --bs-primary: #f27a22;    /* Naranja principal de los CTA */
-    --navy-dark: #072237;     /* Azul oscuro profundo */
-    --bg-light-blue: #f0f7fd; /* Fondo de la sección de cierre */
-    --ticker-bg: #0c334c;     /* Fondo de la barra informativa */
+    --navy-main: #003fa8;      /* Azul marino institucional de los botones y textos */
+    --blue-light: #0091ff;     /* Azul brillante usado en links, destacados y CTA */
+    --navy-dark: #002266;      /* Azul ultra oscuro para footer y fondos */
+    --ticker-bg: #071c40;      /* Fondo azul noche del Ticker */
+    --text-dark: #1e293b;
+    --border-gray: #e2e8f0;
+    --pink-ribbon-bg: #fff0f2; /* Color de fondo suave de la regla de oro */
+    --red-ribbon-text: #e11d48;/* Color de texto de la regla de oro */
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #1e293b;
+    color: var(--text-dark);
     background-color: #ffffff;
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
-   COMPONENTES REUTILIZABLES (BOTONES Y UTILS)
+   NAVBAR & CONFIGURACIÓN RESPONSIVE BASICA
    ========================================================================== */
-.btn-orange {
-    background-color: var(--bs-primary);
-    color: #ffffff;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 10px 24px;
-    transition: all 0.3s ease;
-    border: none;
+.site-navbar {
+    border-bottom: 1px solid var(--border-gray);
+    padding: 15px 0;
 }
 
-.btn-orange:hover {
-    background-color: #d66413;
-    color: #ffffff;
-    transform: translateY(-1px);
+.brand-text {
+    line-height: 1.1;
+    font-size: 0.95rem;
+    color: #071c40;
+    letter-spacing: 0.02em;
+}
+.brand-text span {
+    font-size: 0.75rem;
+    color: var(--blue-light);
+    font-weight: 500;
 }
 
-.text-navy-dark {
-    color: var(--navy-dark);
-}
-
-/* ==========================================================================
-   HERO / HEADER
-   ========================================================================== */
-.hero-section {
-    background: linear-gradient(180deg, #ffffff 0%, #eef7ff 100%);
-    padding-top: 40px;
-    padding-bottom: 80px;
-}
-
-.brand-logo {
+.navbar-nav .nav-link {
     font-weight: 700;
-    color: var(--navy-dark);
+    font-size: 0.8rem;
+    color: #475569 !important;
+    letter-spacing: 0.05em;
+    padding: 0 15px !important;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--blue-light) !important;
 }
 
-.dot-indicator {
-    color: #dc3545;
-    margin-right: 0.5rem;
+@media (max-width: 991.98px) {
+    .w-100-mobile {
+        width: 100% !important;
+        display: block;
+    }
 }
+
+/* ==========================================================================
+   COMPONENTES DE BOTONES Y BADGES
+   ========================================================================== */
+.btn-blue-light {
+    background-color: var(--blue-light);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 10px 22px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+.btn-blue-light:hover {
+    background-color: #0077d4;
+    color: #ffffff;
+}
+
+.btn-navy {
+    background-color: var(--navy-main);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 6px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+.btn-navy:hover {
+    background-color: var(--navy-dark);
+    color: #ffffff;
+}
+
+.btn-outline-blue {
+    background-color: transparent;
+    color: var(--blue-light);
+    border: 2px solid var(--blue-light);
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+.btn-outline-blue:hover {
+    background-color: var(--blue-light);
+    color: #ffffff;
+}
+
+.text-blue-light { color: var(--blue-light); }
+.text-navy { color: var(--navy-main); }
 
 .badge-emergency {
     display: inline-block;
     background-color: #ffffff;
-    color: #0d6efd;
-    border: 1px solid #dee2e6;
-    padding: 0.5rem 1rem;
+    color: var(--navy-main);
+    border: 1px solid var(--border-gray);
+    padding: 6px 14px;
     border-radius: 50rem;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 0.05em;
-    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   HERO LAYOUT DESKTOP OVERLAYS
+   ========================================================================== */
+.hero-section {
+    padding: 60px 0 0px 0;
+    background-color: #ffffff;
+    background-image: url('../img/background/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-title {
-    color: var(--navy-dark);
     font-weight: 800;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    color: var(--navy-dark);
+    line-height: 1.2;
 }
 
 .hero-lead {
     font-size: 1.05rem;
+    color: #475569;
     line-height: 1.6;
-    color: #6c757d;
-    margin-bottom: 1.5rem;
 }
 
+/* Manejo de las tarjetas de datos absolutas sobre la imagen de la derecha */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+.main-hero-img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.floating-data-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    min-width: 160px;
+}
+.floating-data-card strong {
+    font-size: 1.2rem;
+    color: var(--navy-dark);
+    display: block;
+}
+.text-xs { font-size: 0.65rem; }
+
+/* Ubicaciones exactas basadas en el diseño superior derecho */
+.card-1 { top: -39px; right: 73%; }
+.card-2 { top: -10px; right: 36%; }
+.card-3 { top: -13px; right: -15px; }
+
 /* ==========================================================================
-   TICKER BAR
+   DIVISOR TRICOLOR & TICKER
    ========================================================================== */
+.color-divider-bar {
+    display: flex;
+    width: 100%;
+    height: 4px;
+}
+.color-divider-bar .stripe { height: 100%; }
+.color-divider-bar .yellow { flex: 1; background-color: #ffcc00; }
+.color-divider-bar .navy { flex: 1; background-color: #002266; }
+.color-divider-bar .red { flex: 1; background-color: #cf2027; }
+
 .ticker-bar {
     background-color: var(--ticker-bg);
     color: #ffffff;
     font-size: 0.85rem;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 10px 0;
+    padding: 12px 0;
+    letter-spacing: 0.02em;
 }
 
 /* ==========================================================================
-   SECCIÓN: CÓMO FUNCIONA
+   SECCIONES SECUNDARIAS & METRICAS
    ========================================================================== */
-.section-subtitle {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #6c757d;
+.section-tag {
+    font-size: 0.7rem;
     font-weight: 700;
-    font-size: 0.875rem;
+    color: #94a3b8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.step-card {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 30px;
-    height: 100%;
-    background-color: #ffffff;
+.bg-light-gray {
+    background-color: #f8fafc;
 }
 
-.step-number {
-    font-size: 1.5rem;
+.metric-number {
+    font-size: 3rem;
     font-weight: 800;
-    color: #0091ff;
+    color: var(--text-dark);
+    line-height: 1;
+}
+.metric-text-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+}
+
+.step-card-new {
+    background: #ffffff;
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    padding: 25px;
+    height: 100%;
+}
+.step-num-blue {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--blue-light);
+    margin-bottom: 10px;
 }
 
 /* ==========================================================================
-   SECCIÓN: ESTAMOS BUSCANDO (CARRUSEL VERTICAL REVERSO - 3 ITEMS VISIBLES)
+   LA REGLA DE ORO (MARQUEE INFINITO CONTINUO)
+   ========================================================================== */
+.golden-rule-ribbon {
+    background-color: var(--pink-ribbon-bg);
+    color: var(--red-ribbon-text);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(225, 29, 72, 0.1);
+    border-bottom: 1px solid rgba(225, 29, 72, 0.1);
+}
+.ribbon-track {
+    display: inline-block;
+    animation: ribbonMarquee 25s linear infinite;
+}
+@keyframes ribbonMarquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ==========================================================================
+   CARRUSEL VERTICAL INVERSO (3 ITEMS SIMULTÁNEOS DESPLEGADOS)
    ========================================================================== */
 .v-carousel-container {
-    /* 50px de altura por ítem x 3 visibles = 150px de alto total */
-    height: 150px; 
+    height: 135px; /* Ventana exacta para visualizar 3 ítems cómodamente */
     overflow: hidden;
     position: relative;
     width: 100%;
-    max-width: 350px;
+    max-width: 280px;
 }
 
-/* Máscara de desvanecimiento superior e inferior más pronunciada */
+/* Difuminado cinemático arriba y abajo */
 .v-carousel-container::before,
 .v-carousel-container::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    height: 45px; /* Más alta para desvanecer los elementos de los extremos */
+    height: 40px;
     z-index: 2;
     pointer-events: none;
 }
-
 .v-carousel-container::before {
     top: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 100%);
 }
-
 .v-carousel-container::after {
     bottom: 0;
-    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 100%);
 }
 
 .v-carousel-track {
     display: flex;
     flex-direction: column;
-    /* 7 ítems x 50px = 350px. Iniciamos desplazados para movernos hacia abajo */
-    animation: scrollVerticalDown 16s linear infinite;
-}
-
-.v-carousel-container:hover .v-carousel-track {
-    animation-play-state: paused;
+    /* 3 ítems x 45px de altura individual = 135px de loop */
+    animation: scrollDownThree 10s linear infinite;
 }
 
 .v-carousel-item {
-    height: 50px;
+    height: 45px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrado para móvil, cambia a flex-start en md si prefieres */
-    font-size: 1.8rem;
+    justify-content: center;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #94a3b8; /* Gris intermedio para los de los extremos */
-    transition: all 0.3s ease;
+    color: #cbd5e1; /* Los perfiles secundarios se ven difuminados o claros */
+    transition: all 0.2s ease-in-out;
 }
 
-/* En resoluciones medianas/escritorio alineamos a la izquierda como el diseño */
+/* Fija visualmente la fila del medio en color oscuro nítido */
+.v-carousel-item.active-focus {
+    color: #071c40;
+    font-weight: 800;
+}
+
 @media (min-width: 768px) {
     .v-carousel-item {
         justify-content: flex-start;
     }
 }
 
-/* Opcional: Si quieres mantener un rol siempre resaltado en el centro mediante código */
-.v-carousel-item.font-focused {
-    color: var(--navy-dark);
-    font-weight: 800;
-}
-
-/* ANIMACIÓN KEYFRAMES (De Arriba hacia Abajo) */
-@keyframes scrollVerticalDown {
-    0% {
-        transform: translateY(-350px); /* Empieza desplazado un bloque entero */
-    }
-    100% {
-        transform: translateY(0); /* Cae limpiamente hacia su posición original */
-    }
+@keyframes scrollDownThree {
+    0% { transform: translateY(-135px); }
+    100% { transform: translateY(0); }
 }
 
 /* ==========================================================================
-   SECCIÓN: MÉTRICAS
+   FOOTER REFINADO (ALINEACIÓN EXACTA DESKTOP / RESPONSIVE MOBILE)
    ========================================================================== */
-.metric-card {
-    border-radius: 8px;
-    color: #ffffff;
-    padding: 35px 20px;
-    text-align: center;
-}
-
-.bg-metric-green { background-color: #4cbfa6; }
-.bg-metric-purple { background-color: #5850c4; }
-.bg-metric-orange { background-color: #fca11a; }
-
-.metric-label {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.75rem;
-    opacity: 0.75;
-    margin-top: 5px;
-}
-
-/* ==========================================================================
-   SECCIÓN: REGLA DE ORO
-   ========================================================================== */
-.gold-rule-card {
-    background-color: var(--navy-dark);
-    color: #ffffff;
-    border-radius: 12px;
-    padding: 50px;
+.footer-site {
+    background-color: #003fa8; /* El azul rey corporativo de tu diseño */
     position: relative;
+    width: 100%;
+}
+
+/* Ajustes del branding dentro del footer */
+.brand-text-footer {
+    line-height: 1.1;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.brand-text-footer span {
+    font-size: 0.78rem;
+    color: #0091ff; /* Azul brillante */
+    font-weight: 600;
+}
+
+/* Texto descriptivo superior derecho */
+.footer-info-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+/* Íconos de redes sociales */
+.social-icons-footer a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.9;
+}
+.social-icons-footer a:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* Separador interno horizontal */
+.footer-hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0;
+    opacity: 1;
+}
+
+/* Texto de derechos reservados */
+.footer-copy-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.78rem;
+    font-weight: 400;
+}
+
+/* Enlaces de licencia y privacidad */
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.78rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 400;
+}
+.footer-legal-links a:hover {
+    color: #ffffff;
+}
+
+/* Asegurar empaquetado fluido sin desbordamientos marginales */
+.grid-row-fix {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Optimización Responsive: Stacking limpio en móviles */
+@media (max-width: 767.98px) {
+    .brand-text-footer {
+        text-align: center;
+    }
+    .footer-info-text {
+        font-size: 0.9rem;
+    }
+    .footer-legal-links {
+        margin-top: 5px;
+    }
+}
+
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS PARA EL MODAL DE AYUDA
+   ========================================================================== */
+.modal-custom-box {
+    border-radius: 8px !important;
     overflow: hidden;
 }
 
-.gold-rule-card::after {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 150px;
-    height: 150px;
-    border: 2px solid rgba(255,255,255,0.05);
-    border-radius: 50%;
+.modal-custom-box .modal-header {
+    background-color: #003fa8; /* El azul rey de tu diseño */
+    border-bottom: 2px solid #ffcc00; /* Detalle amarillo tricolor sutil */
 }
 
-.gold-rule-subtitle {
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 0.5rem;
-    opacity: 0.5;
+.modal-custom-box .modal-title {
+    letter-spacing: 0.03em;
 }
 
-.gold-rule-title {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
+/* Customización del Select */
+.select-custom-lg {
+    font-size: 0.95rem !important;
+    padding: 12px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    color: #334155 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease;
 }
 
-.gold-rule-text {
-    max-width: 750px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.75;
-    margin-bottom: 0;
+.select-custom-lg:focus {
+    border-color: #0091ff !important; /* Azul brillante al enfocar */
 }
 
-/* ==========================================================================
-   SECCIÓN: FINAL CALL TO ACTION & FOOTER
-   ========================================================================== */
-.final-cta-section {
-    background-color: var(--bg-light-blue);
-    padding: 80px 0;
+/* Estilo para el botón de cancelar */
+.btn-light-cancel {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+.btn-light-cancel:hover {
+    background-color: #e2e8f0;
+    color: #475569;
 }
 
-footer {
-    background-color: var(--navy-dark);
-    color: #a0aec0;
-    font-size: 0.8rem;
-    padding: 40px 0;
+/* Animación sutil de pulso para el ícono de advertencia */
+.animate-pulse {
+    animation: pulseIcon 2s infinite;
 }
 
-.footer-logo {
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
+@keyframes pulseIcon {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* El botón .btn-blue-light hereda el estilo que ya definimos en el paso anterior */
+.modal-custom-box .btn-blue-light.disabled {
+    background-color: #cbd5e1 !important;
+    color: #94a3b8 !important;
+    pointer-events: none;
+    border: none;
 }

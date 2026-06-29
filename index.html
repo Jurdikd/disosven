@@ -3,42 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diseñadores por Ven - Voluntariado de Diseño</title>
+    <title>Diseñadores por Venezuela</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header class="hero-section">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top site-navbar"
+    >
       <div class="container">
-        <nav class="d-flex justify-content-between align-items-center mb-5">
-          <div class="brand-logo">
-            <span class="dot-indicator">▪</span> DISEÑADORESXVEN
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+          <img
+            src="./img/logos/logo-disenadoresxvenezuela-text.svg"
+            alt="Logo"
+            class="me-2"
+            style="height: 30px; onerror=this.style.display='none'"
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars text-navy"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto text-center my-3 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">PLATAFORMA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">VOLUNTARIADO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#help">CÓMO AYUDAR</a>
+            </li>
+          </ul>
+          <div class="text-center">
+            <a href="#unirse" class="btn btn-blue-light btn-sm w-100-mobile"
+              >Quiero Ayudar <i class="fas fa-arrow-right ms-1"></i
+            ></a>
           </div>
-          <a
-            href="https://forms.gle/bs28bGgUnU8BZX2B7"
-            class="btn btn-orange btn-sm"
-            >Quiero Ayudar &rarr;</a
-          >
-        </nav>
+        </div>
+      </div>
+    </nav>
 
-        <div class="row pt-4">
-          <div class="col-lg-7">
-            <span class="badge-emergency">
-              VOLUNTARIADO DE DISEÑO • EMERGENCIA
-            </span>
-            <h1 class="hero-title">
-              Del ruido sísmico,<br /><span class="text-primary"
+    <section class="hero-section mt-4">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 text-center text-lg-start hero-left-content">
+            <span class="badge-emergency mb-3"
+              >VOLUNTARIADO DE DISEÑO · EMERGENCIA</span
+            >
+            <h1 class="hero-title mb-3">
+              Del ruido sísmico,<br /><span class="text-blue-light"
                 >una señal clara</span
               >
             </h1>
-            <p class="hero-lead">
+            <p class="hero-lead mb-4">
               Somos diseñadores que convertimos información verificada sobre los
               terremotos del 24 de junio en piezas visuales claras para redes
               sociales. Si sabes diseñar y tienes un rato, hay una tarea
@@ -48,21 +85,66 @@
               Registrarte toma 2 minutos. Después recibes acceso al tablero de
               tareas.
             </p>
-            <a
-              href="https://forms.gle/bs28bGgUnU8BZX2B7"
-              class="btn border-0 btn-outline-primary px-4 py-2"
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3"
             >
-              &rarr;</a
-            >
-            <a
-              href="https://forms.gle/bs28bGgUnU8BZX2B7"
-              class="btn btn-orange px-4 py-2"
-              >Quiero Ayudar &rarr;</a
-            >
+              <button
+                type="button"
+                class="btn btn-navy py-3 px-4"
+                data-bs-toggle="modal"
+                data-bs-target="#modalAyuda"
+              >
+                Necesito Ayuda
+              </button>
+              <a href="#unirse" class="btn btn-outline-blue py-3 px-4"
+                >Quiero Ayudar</a
+              >
+            </div>
+          </div>
+          <div
+            class="col-lg-6 position-relative hero-right-graphic d-none d-lg-block"
+          >
+            <div class="hero-image-wrapper pt-5">
+              <img
+                src="./img/voluntarios/hero-banner-team.png"
+                alt="Voluntarios"
+                class="img-fluid main-hero-img"
+              />
+
+              <div class="floating-data-card card-1">
+                <span class="small text-muted d-block">Zona más afectada</span>
+                <strong>La Guaira</strong>
+                <span class="d-block text-xs text-muted"
+                  >Varias regiones críticas</span
+                >
+              </div>
+              <div class="floating-data-card card-2">
+                <span class="small text-muted d-block"
+                  >Víctimas confirmadas</span
+                >
+                <strong>+1400</strong>
+                <span class="d-block text-xs text-muted"
+                  >Nuestra ayuda es crucial</span
+                >
+              </div>
+              <div class="floating-data-card card-3">
+                <span class="small text-muted d-block">En equipos</span>
+                <strong>+16 Países</strong>
+                <span class="d-block text-xs text-muted"
+                  >Todos unidos por Venezuela</span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
+
+    <div class="color-divider-bar">
+      <div class="stripe yellow"></div>
+      <div class="stripe navy"></div>
+      <div class="stripe red"></div>
+    </div>
 
     <div class="ticker-bar">
       <div class="container-fluid text-center">
@@ -80,25 +162,92 @@
       </div>
     </div>
 
-    <section class="py-5 my-5">
+    <section id="helpme" class="py-5 my-3 bg-white">
       <div class="container">
-        <div class="mb-5">
-          <span class="section-subtitle">Cómo funciona</span>
-          <h2 class="fw-bold text-navy-dark mt-1">
-            Tres pasos para empezar a aportar.
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 text-center text-lg-start">
+            <span class="section-tag">LA PLATAFORMA</span>
+            <h2 class="fw-bold text-navy display-6 my-3">
+              Cubrimos
+              <span class="text-blue-light">La Necesidad De Diseño</span> De
+              Acuerdo a La Emergencia
+            </h2>
+            <p class="text-secondary mb-4">
+              Si necesitas un flyer de persona desaparecida, encontrada,
+              donativo, centro de acopio y demás no dudes en contactarnos.
+            </p>
+            <a href="#" class="btn btn-navy px-4 py-3 w-100-mobile mb-4 mb-lg-0"
+              >Necesito Ayuda</a
+            >
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="./img/cases/mockup-chats.png"
+              alt="Casos de ayuda"
+              class="img-fluid rounded"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light-gray border-top border-bottom">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-md-4">
+            <div class="metric-number">+580</div>
+            <div class="metric-text-label">DISEÑADORES REGISTRADOS</div>
+          </div>
+          <div class="col-md-4">
+            <div class="metric-number">+350</div>
+            <div class="metric-text-label">TAREAS ACTIVAS</div>
+          </div>
+          <div class="col-md-4">
+            <div class="metric-number">+4120</div>
+            <div class="metric-text-label">FLYERS ENVIADOS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="color-divider-bar">
+      <div class="stripe yellow"></div>
+      <div class="stripe navy"></div>
+      <div class="stripe red"></div>
+    </div>
+
+    <section id="help" class="py-5 my-4">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-tag"
+            >PRÁCTICAS REALES, RESULTADOS COMPROBADOS</span
+          >
+          <h2 class="fw-bold text-navy display-6 mt-2">
+            Sé Parte del
+            <span class="text-blue-light">Voluntariado de Diseño</span> en Esta
+            Emergencia
           </h2>
+        </div>
+
+        <div class="mb-4">
+          <span class="text-uppercase text-navy fw-bold small d-block mb-1"
+            >¿Eres Diseñador?</span
+          >
+          <h3 class="h4 fw-bold text-navy mb-3">
+            Tres pasos para empezar a aportar.
+          </h3>
           <p class="text-muted">
             Está pensado para que entres, agarres algo concreto y diseñes sin
             fricción. Sin reuniones eternas.
           </p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 my-3">
           <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number mb-3">01</div>
-              <h4 class="h5 fw-bold">Regístrate</h4>
-              <p class="text-secondary small mb-0">
+            <div class="step-card-new">
+              <div class="step-num-blue">01</div>
+              <h4 class="h6 fw-bold text-navy">Regístrate</h4>
+              <p class="text-muted small mb-0">
                 Llena el formulario con tu nombre, tus redes y en qué eres
                 bueno. Así sabemos quién está en el equipo y te damos acceso al
                 tablero.
@@ -106,10 +255,10 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number mb-3">02</div>
-              <h4 class="h5 fw-bold">Toma una tarea</h4>
-              <p class="text-secondary small mb-0">
+            <div class="step-card-new">
+              <div class="step-num-blue">02</div>
+              <h4 class="h6 fw-bold text-navy">Toma una tarea</h4>
+              <p class="text-muted small mb-0">
                 Entras al tablero, eliges una pieza disponible y la marcas como
                 tuya. Cada tarea trae su brief, su formato y sus recursos
                 adentro.
@@ -117,10 +266,10 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number mb-3">03</div>
-              <h4 class="h5 fw-bold">Diseña con datos verificados</h4>
-              <p class="text-secondary small mb-0">
+            <div class="step-card-new">
+              <div class="step-num-blue">03</div>
+              <h4 class="h6 fw-bold text-navy">Diseña con datos verificados</h4>
+              <p class="text-muted small mb-0">
                 Uses solo la información y las plantillas aprobadas por el
                 equipo de contenido. Subes tu pieza a revisión y, una vez
                 aprobada, se publica.
@@ -128,113 +277,297 @@
             </div>
           </div>
         </div>
+
+        <div class="text-center mt-5">
+          <a href="#unirse" class="btn btn-outline-blue px-5 py-2"
+            >Quiero Ayudar</a
+          >
+        </div>
       </div>
     </section>
 
-    <section class="py-5 my-4">
+    <div class="golden-rule-ribbon">
+      <div class="ribbon-track">
+        <span
+          >EN UNA EMERGENCIA, UN DATO EQUIVOCADO HACE DAÑO &nbsp;|&nbsp; TODO LO
+          QUE DISEÑAMOS SALE ÚNICAMENTE DE INFORMACIÓN VERIFICADA POR NUESTRO
+          EQUIPO DE CONTENIDO &nbsp;|&nbsp;&nbsp;</span
+        >
+        <span
+          >EN UNA EMERGENCIA, UN DATO EQUIVOCADO HACE DAÑO &nbsp;|&nbsp; TODO LO
+          QUE DISEÑAMOS SALE ÚNICAMENTE DE INFORMACIÓN VERIFICADA POR NUESTRO
+          EQUIPO DE CONTENIDO &nbsp;|&nbsp;&nbsp;</span
+        >
+      </div>
+    </div>
+
+    <section id="unirse" class="py-5 my-5">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-            <span class="fw-bold text-dark h5">Estamos buscando</span>
+        <div class="text-center mb-5">
+          <h2 class="fw-bold text-navy h3">
+            ¿Sabes diseñar? Hay una<br />tarea con tu nombre.
+          </h2>
+        </div>
+
+        <div class="row align-items-center justify-content-center g-4">
+          <div class="col-md-3 text-center text-md-start">
+            <span class="fw-bold text-dark h6">Estamos buscando</span>
           </div>
 
-          <div
-            class="col-md-5 d-flex justify-content-center justify-content-md-start"
-          >
+          <div class="col-md-5 d-flex justify-content-center">
             <div class="v-carousel-container">
               <div class="v-carousel-track">
-                <div class="v-carousel-item">Estudiantes</div>
-                <div class="v-carousel-item">UI/UX</div>
                 <div class="v-carousel-item">Copywriters</div>
                 <div class="v-carousel-item">Diseñadores</div>
                 <div class="v-carousel-item">Desarrolladores</div>
-                <div class="v-carousel-item">Editores de Video</div>
-                <div class="v-carousel-item">Voice Over</div>
-                <div class="v-carousel-item">Project Managers</div>
-
-                <div class="v-carousel-item">Estudiantes</div>
-                <div class="v-carousel-item">UI/UX</div>
                 <div class="v-carousel-item">Copywriters</div>
-                <div class="v-carousel-item font-focused">Diseñadores</div>
+                <div class="v-carousel-item active-focus">Diseñadores</div>
                 <div class="v-carousel-item">Desarrolladores</div>
-                <div class="v-carousel-item">Editores de Video</div>
-                <div class="v-carousel-item">Voice Over</div>
-                <div class="v-carousel-item">Project Managers</div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-3 text-center text-md-end mt-4 mt-md-0">
-            <a href="https://forms.gle/bs28bGgUnU8BZX2B7" class="btn btn-orange"
-              >Quiero Ayudar &rarr;</a
+          <div class="col-md-4 text-center text-md-end">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSce7leDk1whUcIwoUDBr_IbR5OmVAKTW1NX5328H8a7ow4ozw/viewform"
+              class="btn btn-blue-light py-3 px-4 w-100-mobile"
+              target="_blank"
+              >Quiero Ayudar <i class="fas fa-arrow-right ms-1"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-site">
+      <div class="color-divider-bar">
+        <div class="stripe yellow"></div>
+        <div class="stripe navy"></div>
+        <div class="stripe red"></div>
+      </div>
+
+      <div class="container footer-container">
+        <div class="row pt-5 pb-4 align-items-start grid-row-fix">
+          <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+            <a
+              class="footer-brand d-inline-flex align-items-center text-decoration-none"
+              href="#"
             >
+              <img
+                src=".//img/logos/logo-disenadoresxvenezuela.svg"
+                alt="Logo"
+                class="me-2"
+                style="height: 55px; onerror=this.style.display='none'"
+              />
+            </a>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="metric-card bg-metric-green">
-              <div class="display-5 fw-bold">360&uarr;</div>
-              <div class="metric-label">Diseñadores Registrados</div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="footer-info-text mb-2">
+              Hecho por voluntarios. Diseño al servicio de la información.
+            </p>
+            <div
+              class="d-flex justify-content-center justify-content-md-end gap-3 social-icons-footer"
+            >
+              <a
+                href="https://www.instagram.com/designxvenezuela/"
+                aria-label="Instagram"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/designxvenezuela/"
+                aria-label="Facebook"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@designxvenezuela"
+                aria-label="TikTok"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="metric-card bg-metric-purple">
-              <div class="display-5 fw-bold">322</div>
-              <div class="metric-label">Tareas Activas</div>
-            </div>
+        </div>
+
+        <hr class="footer-hr" />
+
+        <div class="row py-4 align-items-center">
+          <div
+            class="col-md-6 text-center text-md-start mb-3 mb-md-0 footer-copy-text"
+          >
+            © 2026 Diseñadores por Venezuela. All Rights Reserved.
           </div>
-          <div class="col-md-4">
-            <div class="metric-card bg-metric-orange">
-              <div class="display-5 fw-bold">+4120</div>
-              <div class="metric-label">Flyers Enviados</div>
+
+          <div class="col-md-6 text-center text-md-end">
+            <div
+              class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links"
+            >
+              <a href="#">License</a>
+              <a href="#">Privacy Notice</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="py-5 my-4">
-      <div class="container">
-        <div class="gold-rule-card">
-          <span class="gold-rule-subtitle">La regla de oro</span>
-          <h3 class="gold-rule-title">
-            En una emergencia, un dato equivocado hace daño.
-          </h3>
-          <p class="gold-rule-text">
-            Todo lo que diseñamos sale únicamente de información verificada por
-            nuestro equipo de contenido. Si un dato no está aprobado, no se
-            publica. La claridad y la precisión son el trabajo.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="unirse" class="final-cta-section text-center">
-      <div class="container">
-        <span class="text-uppercase text-muted fw-bold small d-block mb-2"
-          >Te necesitamos</span
-        >
-        <h2 class="display-5 fw-bold text-navy-dark mb-4">
-          ¿Sabes diseñar? Hay una<br />tarea con tu nombre.
-        </h2>
-        <a href="#" class="btn btn-orange px-5 py-3">Quiero Ayudar &rarr;</a>
-      </div>
-    </section>
-
-    <footer class="text-center">
-      <div class="container">
-        <div class="footer-logo">DISEÑADORESXVEN</div>
-        <p class="mb-0 text-muted small">
-          Hecho por voluntarios. Diseño al servicio de la información.
-        </p>
       </div>
     </footer>
+    <div
+      class="modal fade"
+      id="modalAyuda"
+      tabindex="-1"
+      aria-labelledby="modalAyudaLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-custom-box">
+          <div class="modal-header text-white py-3">
+            <h5
+              class="modal-title fw-bold h6 d-flex align-items-center"
+              id="modalAyudaLabel"
+            >
+              <i
+                class="fas fa-exclamation-triangle text-warning me-2 animate-pulse"
+              ></i>
+              SELECCIONA TU REQUERIMIENTO
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <p class="text-muted small mb-4">
+              Por favor, elige la categoría que mejor describa tu situación. Te
+              redirigiremos de inmediato a un formulario oficial verificado por
+              nuestro equipo para procesar tu caso.
+            </p>
+
+            <div class="mb-4">
+              <label
+                for="selectRequerimiento"
+                class="form-label fw-bold small text-navy-dark"
+                >Tipo de Solicitud / Reporte:</label
+              >
+              <select
+                class="form-select select-custom-lg"
+                id="selectRequerimiento"
+              >
+                <option value="" selected disabled>
+                  -- Selecciona una opción de la lista --
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLScMHJ4-FWd6VT8-30Y7glnUlBSwqKvcZFTWsWSM79i_OdNQxA/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Desaparecidos (Búsqueda de personas)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSfm6dcpyfu9VcCfmdCschAsl_4F3JxVLtWh3rR1UC_J2bjzNA/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Encontrados (Reportar persona localizada)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSd0a3nE-2Q9nTCuxY3ZlX6xfIUGUFK029wapUqmxDSy3yC8Lw/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Rescate (Solicitudes de auxilio urgente)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSexfZR0SsnMZKW6oib0ViEXpLweHr1r1RmXD5QTMwJaTNTZEg/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Hospitales (Estado / Insumos médicos)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSd8bg9Eejp5R-Q741kdvw6lydeao1EIFaG8NyuNRrmmOjxWJA/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Centros de Acopio (Direcciones y Logística)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSfbzVmRbfUVYXME_Mm2b-JK35-pmbZ82xM4tnUO4acJ4lsMFw/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Insumos / Donaciones (Ofrecer u organizar ayuda)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLScW-cVLsijmOadsP5U0Ua7ciBDks40jGH4YPTp0wSCBKP6vcQ/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Mascotas (Refugios, extravíos o rescate animal)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSf9wtqoeMe6TPp2-irxToL884nvOqiQpDDc2rLm9kdrb9iDEw/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Criminales (Reportes de seguridad / Alertas)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSe1qZRCX9rehL-XP4DoLVfhyT8NSYKgmWZmR8yHhfM6VmwLkA/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Fallecidos (Registros oficiales de decesos)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLScCfWeSa2bGe27Xh6s4vwYp-3KVp6R676LTCvbZAVkRbS2Xuw/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Información Falsa (Desmentir bulos / Reportar Fake News)
+                </option>
+                <option
+                  value="https://docs.google.com/forms/d/e/1FAIpQLSd8IDrKbQHJkKHGALOQ9JWLdBfVhkX8l-3Gc5RXcequ65rRPw/viewform?usp=share_link&ouid=110680629560102632822"
+                >
+                  Información Importante (Otros datos críticos relevantes)
+                </option>
+              </select>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 pt-2">
+              <button
+                type="button"
+                class="btn btn-light-cancel btn-sm px-3"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <a
+                href="#"
+                id="btnIrAlFormulario"
+                target="_blank"
+                class="btn btn-blue-light btn-sm px-4 disabled"
+              >
+                Continuar al Formulario
+                <i class="fas fa-external-link-alt ms-1 small"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const selectReq = document.getElementById('selectRequerimiento');
+        const btnFormulario = document.getElementById('btnIrAlFormulario');
+
+        selectReq.addEventListener('change', function () {
+          const URLSeleccionada = this.value;
+
+          if (URLSeleccionada) {
+            // Setea el link correspondiente
+            btnFormulario.setAttribute('href', URLSeleccionada);
+            // Activa visual y funcionalmente el botón
+            btnFormulario.classList.remove('disabled');
+          } else {
+            // Si vuelve al estado por defecto, bloquea el botón
+            btnFormulario.setAttribute('href', '#');
+            btnFormulario.classList.add('disabled');
+          }
+        });
+
+        // Limpiar el formulario al cerrar el modal por usabilidad
+        const modalElement = document.getElementById('modalAyuda');
+        modalElement.addEventListener('hidden.bs.modal', function () {
+          selectReq.value = '';
+          btnFormulario.setAttribute('href', '#');
+          btnFormulario.classList.add('disabled');
+        });
+      });
+    </script>
   </body>
 </html>
