@@ -2,10 +2,10 @@
    VARIABLES CORPORATIVAS DE PALETA (NUEVO DISEÑO)
    ========================================================================== */
 :root {
-    --navy-main: #003fa8;      /* Azul marino institucional de los botones y textos */
-    --blue-light: #0091ff;     /* Azul brillante usado en links, destacados y CTA */
-    --navy-dark: #002266;      /* Azul ultra oscuro para footer y fondos */
-    --ticker-bg: #071c40;      /* Fondo azul noche del Ticker */
+    --navy-main: #0B1F5B;      /* Azul marino institucional de los botones y textos */
+    --blue-light: #0099FF;     /* Azul brillante usado en links, destacados y CTA */
+    --navy-dark: #0B1F5B;      /* Azul ultra oscuro para footer y fondos */
+    --ticker-bg: #0B1F5B;      /* Fondo azul noche del Ticker */
     --text-dark: #1e293b;
     --border-gray: #e2e8f0;
     --pink-ribbon-bg: #fff0f2; /* Color de fondo suave de la regla de oro */
@@ -108,10 +108,10 @@ body {
     background-color: #ffffff;
     color: var(--navy-main);
     border: 1px solid var(--border-gray);
-    padding: 6px 14px;
+    
     border-radius: 50rem;
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 1.125rem;
     letter-spacing: 0.05em;
 }
 
@@ -178,7 +178,7 @@ body {
 .color-divider-bar {
     display: flex;
     width: 100%;
-    height: 4px;
+    height: 10px;
 }
 .color-divider-bar .stripe { height: 100%; }
 .color-divider-bar .yellow { flex: 1; background-color: #ffcc00; }
@@ -330,7 +330,7 @@ body {
    FOOTER REFINADO (ALINEACIÓN EXACTA DESKTOP / RESPONSIVE MOBILE)
    ========================================================================== */
 .footer-site {
-    background-color: #003fa8; /* El azul rey corporativo de tu diseño */
+    background-color: #0047AB; 
     position: relative;
     width: 100%;
 }
@@ -475,4 +475,8 @@ body {
     color: #94a3b8 !important;
     pointer-events: none;
     border: none;
+}
+
+.g-6, .gy-6 {
+    --bs-gutter-y: 4rem;
 }
